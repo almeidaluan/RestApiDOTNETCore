@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RestApiDOTNETCore.Data;
 using RestApiDOTNETCore.Models;
@@ -21,6 +22,11 @@ namespace PersonRepository.Repositories.impl{
     public IEnumerable<Person> FindAllPersons()
     {
       return _databaseContext.Person;
+    }
+
+    public Person findById(Guid id)
+    {
+      return _databaseContext.Person.Find(id);
     }
   }
 }

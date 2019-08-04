@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
+using RestApiDOTNETCore.Converters;
 using RestApiDOTNETCore.Models;
 using RestApiDOTNETCore.Services;
 
@@ -17,6 +18,15 @@ namespace RestApiDOTNETCore.Controllers{
     [HttpGet("persons")]
     public IActionResult findAllPersons(){
       return Ok(_personService.FindAll());
+    }
+
+    [HttpGet("persons/{id}")]
+    public IActionResult findById(Guid id){
+      
+      Person person = _personService.FindById(id);
+      PersonConverter converter = new PersonConverter();
+      return Ok(converter.Parse(person)); 
+    
     }
 
     [HttpPost("persons")]

@@ -28,7 +28,7 @@ namespace RestApiDOTNETCore.Services.impl{
 
     public Person FindById(Guid id)
     {
-      throw new NotImplementedException();
+      return _iPersonRepository.findById(id);
     }
 
     public Person update(Person person)

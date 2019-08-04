@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RestApiDOTNETCore.Models;
 
@@ -6,5 +7,6 @@ namespace RestApiDOTNETCore.Repositories{
 
     Person CreatePerson(Person person);
     IEnumerable<Person> FindAllPersons();
+    Person findById(Guid id);
   }
 }
