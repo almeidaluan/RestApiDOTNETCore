@@ -26,6 +26,8 @@ namespace RestApiDOTNETCore
 
             services.AddMvc();
 
+            services.AddApiVersioning();
+
             
         }
 

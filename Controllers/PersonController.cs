@@ -5,7 +5,8 @@ using RestApiDOTNETCore.Services;
 
 namespace RestApiDOTNETCore.Controllers{
 
-  [Route("v1/api")]
+  [ApiVersion("1")]
+  [Route("/v{version:apiVersion}/api")]
   public class PersonController: Controller{
 
     private readonly IPersonService _personService;
