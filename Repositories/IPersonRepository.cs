@@ -6,7 +6,7 @@ namespace RestApiDOTNETCore.Repositories{
   public interface IPersonRepository{
 
     Person CreatePerson(Person person);
-    IEnumerable<Person> FindAllPersons();
+    List<Person> FindAllPersons();
     Person findById(Guid id);
   }
 }

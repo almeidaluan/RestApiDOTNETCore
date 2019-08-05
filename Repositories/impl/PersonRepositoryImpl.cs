@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using RestApiDOTNETCore.Data;
 using RestApiDOTNETCore.Models;
 using RestApiDOTNETCore.Repositories;
+using System.Linq;
 
 namespace PersonRepository.Repositories.impl{
   public class PersonRepositoryImpl : IPersonRepository
@@ -19,9 +20,9 @@ namespace PersonRepository.Repositories.impl{
       return savedPerson.Entity;
     }
 
-    public IEnumerable<Person> FindAllPersons()
+    public List<Person> FindAllPersons()
     {
-      return _databaseContext.Person;
+      return _databaseContext.Person.ToList();
     }
 
     public Person findById(Guid id)

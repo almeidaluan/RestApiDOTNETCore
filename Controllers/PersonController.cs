@@ -11,21 +11,23 @@ namespace RestApiDOTNETCore.Controllers{
   public class PersonController: Controller{
 
     private readonly IPersonService _personService;
+
+    private readonly PersonConverter _personConverter;
     public PersonController(IPersonService iPersonService){
       _personService = iPersonService;
+      _personConverter = new PersonConverter();
     }
 
     [HttpGet("persons")]
     public IActionResult findAllPersons(){
-      return Ok(_personService.FindAll());
+      return Ok(_personConverter.ParseList(_personService.FindAll()));
     }
 
     [HttpGet("persons/{id}")]
     public IActionResult findById(Guid id){
       
       Person person = _personService.FindById(id);
-      PersonConverter converter = new PersonConverter();
-      return Ok(converter.Parse(person)); 
+      return Ok(_personConverter.Parse(person)); 
     
     }
 

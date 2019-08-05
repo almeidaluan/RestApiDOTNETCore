@@ -7,7 +7,7 @@ namespace RestApiDOTNETCore.Services{
 
     Person Create(Person person);
     Person FindById(Guid id);
-    IEnumerable<Person> FindAll();
+    List<Person> FindAll();
     Person update(Person person); 
     void Delete(Guid id);
     

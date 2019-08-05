@@ -21,7 +21,7 @@ namespace RestApiDOTNETCore.Services.impl{
       throw new NotImplementedException();
     }
 
-    public IEnumerable<Person> FindAll()
+    public List<Person> FindAll()
     {
       return _iPersonRepository.FindAllPersons();
     }

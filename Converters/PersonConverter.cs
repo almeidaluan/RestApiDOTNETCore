@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RestApiDOTNETCore.Models;
 using RestApiDOTNETCore.VO;
 
@@ -26,13 +27,15 @@ namespace RestApiDOTNETCore.Converters{
     }
 
     public List<Person> ParseList(List<PersonVO> origin)
-    {
-      throw new System.NotImplementedException();
+    {     
+      return origin.Select( item => Parse(item)).ToList();
     }
 
     public List<PersonVO> ParseList(List<Person> origin)
     {
-      throw new System.NotImplementedException();
+      return origin.Select( item => Parse(item)).ToList();
     }
+
+    
   }
 }
